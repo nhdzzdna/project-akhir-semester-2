@@ -3,7 +3,7 @@ using namespace std;
 
 int menu, i=0, menuPerbarui;
 char kembali;
-void MENU(), tambahProduk(), tampilkanProduk();
+void MENU(), tambahProduk(), tampilkanProduk(), cariProduk();
 void menuPerbaruiProduk(), perbaruiProduk(), perbaruiHarga();
 
 struct produk{
@@ -19,6 +19,7 @@ int main(){
         case 1: tambahProduk(); break;
         case 2: tampilkanProduk(); break;
         case 3: perbaruiProduk(); break;
+        case 4: cariProduk(); break;
         default: system("cls");
             cout << "==================\n";
             cout << "| Menu tidak ada |\n";
@@ -143,4 +144,8 @@ void perbaruiProduk(){
         case 2: perbaruiStok(); break;        
         default: break;
     }
+}
+
+void cariProduk(){
+
 }
