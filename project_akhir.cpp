@@ -102,7 +102,7 @@ void perbaruiHarga(){
             index = j;
         }
     }
-    if (ada){
+    if(ada){
         float hargaBaru;
         cout << "Masukkan harga baru : ";
         cin >> hargaBaru;
@@ -127,7 +127,7 @@ void perbaruiStok(){
             index = j;
         }
     }
-    if (ada){
+    if(ada){
         int stokBaru;
         cout << "Masukkan stok baru : ";
         cin >> stokBaru;
@@ -165,7 +165,7 @@ void cariProduk(){
             index = j;
         }
     }
-    if (ada){
+    if(ada){
         system("cls");
         cout << "Nama Produk : " << Produk[index].nama << endl;
         cout << "Harga       : " << Produk[index].harga << endl;
@@ -189,13 +189,13 @@ void cariProduk(){
                 break;
             }
         }
-        if (ada){
+        if(ada){
             for (int k = index; k < i - 1; k++){
                 Produk[k] = Produk[k + 1];
             }
             cout << "============================================\n";
             cout << "----------Data produk berhasil dihapus!----------\n";
-        } else {
+        }else{
             cout << "============================================\n";
             cout << "----------Produk tidak ditemukan!-----------\n";
         }
