@@ -3,7 +3,7 @@ using namespace std;
 
 int menu, i=0, menuPerbarui;
 char kembali;
-void MENU(), tambahProduk(), tampilkanProduk(), cariProduk();
+void MENU(), tambahProduk(), tampilkanProduk(), cariProduk(), hapusProduk();;
 void menuPerbaruiProduk(), perbaruiProduk(), perbaruiHarga();
 
 struct produk{
@@ -16,14 +16,16 @@ int main(){
     do{
     MENU();
     switch(menu){
-        case 1: tambahProduk(); break;
-        case 2: tampilkanProduk(); break;
-        case 3: perbaruiProduk(); break;
-        case 4: cariProduk(); break;
-        default: system("cls");
+        case 1  : tambahProduk();    break;
+        case 2  : tampilkanProduk(); break;
+        case 3  : perbaruiProduk();  break;
+        case 4  : cariProduk();      break;
+        case 5  : hapusProduk();     break;
+        default : system("cls");
             cout << "==================\n";
             cout << "| Menu tidak ada |\n";
             cout << "==================\n";
+        break;    
         }
         cout << "\nApakah anda ingin kembali ke menu? (y/t) "; cin >> kembali;        
         }while (kembali == 'y' || kembali == 'Y');
@@ -67,9 +69,9 @@ void tampilkanProduk(){
     cout << "|           Daftar Produk          |\n";    
     cout << "====================================\n";
     for(int j=0; j<i; j++){
-        cout << "Nama Produk: " << Produk[j].nama << endl;
-        cout << "Harga : " << Produk[j].harga << endl;
-        cout << "Stok : " << Produk[j].stok << endl;
+        cout << "Nama Produk : " << Produk[j].nama << endl;
+        cout << "Harga       : " << Produk[j].harga << endl;
+        cout << "Stok        : " << Produk[j].stok << endl;
         cout << "------------------------------------" << endl;
     }
 }
@@ -92,7 +94,7 @@ void perbaruiHarga(){
     string namaProduk;
     int j, index;
     bool ada = false;
-    cout << "Nama produk : ";
+    cout << "Nama produk         : ";
     cin >> namaProduk;
     for(j=0; j<i; j++){
         if(namaProduk == Produk[j].nama){
@@ -117,7 +119,7 @@ void perbaruiStok(){
     string namaProduk;
     int j, index;
     bool ada = false;
-    cout << "Nama produk : ";
+    cout << "Nama produk        : ";
     cin >> namaProduk;
     for(j=0; j<i; j++){
         if(namaProduk == Produk[j].nama){
@@ -140,12 +142,61 @@ void perbaruiStok(){
 void perbaruiProduk(){
     menuPerbaruiProduk();
     switch(menuPerbarui){
-        case 1: perbaruiHarga(); break;
-        case 2: perbaruiStok(); break;        
-        default: break;
+        case 1  : perbaruiHarga(); break;
+        case 2  : perbaruiStok();  break;        
+        default : system("cls");
+            cout << "==================\n";
+            cout << "| Menu tidak ada |\n";
+            cout << "==================\n";
+        break;  
     }
 }
 
 void cariProduk(){
-
+    system("cls");
+    string namaProduk;
+    int j, index;
+    bool ada = false;
+    cout << "Nama produk : ";
+    cin >> namaProduk;
+    for(j=0; j<i; j++){
+        if(namaProduk == Produk[j].nama){
+            ada = true;
+            index = j;
+        }
+    }
+    if (ada){
+        system("cls");
+        cout << "Nama Produk : " << Produk[index].nama << endl;
+        cout << "Harga       : " << Produk[index].harga << endl;
+        cout << "Stok        : " << Produk[index].stok << endl;
+    }else{
+        cout << "============================================\n";
+        cout << "----------Produk tidak ditemukan!-----------\n";}  
 }
+
+    void hapusProduk(){
+        system("cls");
+        string namaProduk;
+        int j, index;
+        bool ada = false;
+        cout << "Nama produk : ";
+        cin >> namaProduk;
+        for(j = 0; j < i; j++){
+            if(namaProduk == Produk[j].nama){
+                ada = true;
+                index = j;
+                break;
+            }
+        }
+        if (ada){
+            for (int k = index; k < i - 1; k++){
+                Produk[k] = Produk[k + 1];
+            }
+            cout << "============================================\n";
+            cout << "----------Data produk berhasil dihapus!----------\n";
+        } else {
+            cout << "============================================\n";
+            cout << "----------Produk tidak ditemukan!-----------\n";
+        }
+    }
