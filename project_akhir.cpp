@@ -76,6 +76,33 @@ void tampilkanProduk(){
     }
 }
 
+void cariProduk(){
+    system("cls");
+    string namaProduk;
+    int index = -1;
+    bool ada = false;
+
+    cout << "Nama produk : ";
+    cin >> namaProduk;
+
+    for(int j=0; j<i; j++){
+        if(Produk[j].nama == namaProduk){
+            ada = true;
+            index = j;
+            break;
+        }
+    }
+
+    if(ada){
+        system("cls");
+        cout << "Nama Produk : " << Produk[index].nama << endl;
+        cout << "Harga       : " << Produk[index].harga << endl;
+        cout << "Stok        : " << Produk[index].stok << endl;
+    }else{
+        cout << "============================================\n";
+        cout << "----------Produk tidak ditemukan!-----------\n";}  
+}
+
 void menuPerbaruiProduk(){
     system("cls");
     cout << "====================================\n";
@@ -152,7 +179,7 @@ void perbaruiProduk(){
     }
 }
 
-void cariProduk(){
+void hapusProduk(){
     system("cls");
     string namaProduk;
     int j, index;
@@ -163,40 +190,18 @@ void cariProduk(){
         if(namaProduk == Produk[j].nama){
             ada = true;
             index = j;
+            break;
         }
     }
     if(ada){
-        system("cls");
-        cout << "Nama Produk : " << Produk[index].nama << endl;
-        cout << "Harga       : " << Produk[index].harga << endl;
-        cout << "Stok        : " << Produk[index].stok << endl;
+        for (int k=index; k<i-1; k++){
+            Produk[k] = Produk[k+1];
+        }
+        i--; 
+        cout << "============================================\n";
+        cout << "-------Data produk berhasil dihapus!--------\n";
     }else{
         cout << "============================================\n";
-        cout << "----------Produk tidak ditemukan!-----------\n";}  
-}
-
-    void hapusProduk(){
-        system("cls");
-        string namaProduk;
-        int j, index;
-        bool ada = false;
-        cout << "Nama produk : ";
-        cin >> namaProduk;
-        for(j = 0; j < i; j++){
-            if(namaProduk == Produk[j].nama){
-                ada = true;
-                index = j;
-                break;
-            }
-        }
-        if(ada){
-            for (int k = index; k < i - 1; k++){
-                Produk[k] = Produk[k + 1];
-            }
-            cout << "============================================\n";
-            cout << "----------Data produk berhasil dihapus!----------\n";
-        }else{
-            cout << "============================================\n";
-            cout << "----------Produk tidak ditemukan!-----------\n";
-        }
+        cout << "----------Produk tidak ditemukan!-----------\n";
     }
+}
