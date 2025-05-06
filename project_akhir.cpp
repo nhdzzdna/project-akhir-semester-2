@@ -19,20 +19,19 @@ int main(){
     do{
     MENU();
     switch(menu){
-        case 1  : tambahProduk();                   break;
+        case 1  : tambahProduk();                               break;
         case 2  : if(jumlahProduk>0){menuTampilkanProduk();} 
-                  else{kosong();}                   break;
+                  else{kosong();}                               break;
         case 3  : if(jumlahProduk>0){perbaruiProduk();} 
-                  else{kosong();}                   break;
+                  else{kosong();}                               break;
         case 4  : if(jumlahProduk>0){cariProduk();} 
-                  else{kosong();}                   break;
+                  else{kosong();}                               break;
         case 5  : if(jumlahProduk>0){hapusProduk();} 
-                  else{kosong();}                   break;
+                  else{kosong();}                               break;
         default : system("cls");
             cout << "==================\n";
             cout << "| Menu tidak ada |\n";
-            cout << "==================\n";
-        break;    
+            cout << "==================\n";                     break;    
         }
         cout << "\nApakah anda ingin kembali ke menu? (y/t) "; cin >> kembali;        
         }while (kembali == 'y' || kembali == 'Y');
@@ -93,21 +92,20 @@ void menuAscDesc(){
     
     if(urutanProduk==1 && AscDesc==1){
         ascNama(Produk, jumlahProduk);
-    }
-    else if(urutanProduk==1 && AscDesc==2){
+    }else if(urutanProduk==1 && AscDesc==2){
         descNama(Produk, jumlahProduk);
-    }
-    else if(urutanProduk==2 && AscDesc==1){
+    }else if(urutanProduk==2 && AscDesc==1){
         ascHarga(Produk, jumlahProduk);
-    }
-    else if(urutanProduk==2 && AscDesc==2){
+    }else if(urutanProduk==2 && AscDesc==2){
         descHarga(Produk, jumlahProduk);
-    }
-    else if(urutanProduk==3 && AscDesc==1){
+    }else if(urutanProduk==3 && AscDesc==1){
         ascStok(Produk, jumlahProduk);
-    }
-    else if(urutanProduk==3 && AscDesc==2){
+    }else if(urutanProduk==3 && AscDesc==2){
         descStok(Produk, jumlahProduk);
+    }else{
+        cout << "==================\n";
+        cout << "| Menu tidak ada |\n";
+        cout << "==================\n"; 
     }
 }
 
@@ -230,9 +228,7 @@ void menuPerbaruiProduk(){
     cout << "====================================\n";
     cout << "| 1. Harga                         |\n";
     cout << "| 2. Stok                          |\n";
-    cout << "====================================\n";    
-    cout << "| 0. Kembali                       |\n";
-    cout << "====================================\n";  
+    cout << "====================================\n";   
     cout << "Pilih menu : "; cin >> menuPerbarui;    
 }
 
