@@ -42,13 +42,13 @@ int main(){
         MENU();
         switch(menu){
             case 1: tambahProduk();                                                          break;
-            case 2: if(!Produk.empty()){ menuTampilkanProduk();}else{ kosong();}        break;
-            case 3: if(!Produk.empty()){ perbaruiProduk();}else{ kosong();}             break;
-            case 4: if(!Produk.empty()){ tampilkanHasilCariProduk();}else{ kosong();}   break;
-            case 5: if(!Produk.empty()){ hapusProduk();}else{ kosong();}                break;
-            case 6: if(!Produk.empty()){ dataPenjualan();}else{ kosong();}              break;
-            case 7: if(!Penjualan.empty()){ laporanKeuangan();}else{ kosong();}         break; 
-            case 8: if(!Produk.empty() || !Penjualan.empty()){ reset();}else{ kosong();}break;
+            case 2: if(!Produk.empty()){ menuTampilkanProduk();}else{ kosong();}             break;
+            case 3: if(!Produk.empty()){ perbaruiProduk();}else{ kosong();}                  break;
+            case 4: if(!Produk.empty()){ tampilkanHasilCariProduk();}else{ kosong();}        break;
+            case 5: if(!Produk.empty()){ hapusProduk();}else{ kosong();}                     break;
+            case 6: if(!Produk.empty()){ dataPenjualan();}else{ kosong();}                   break;
+            case 7: if(!Penjualan.empty()){ laporanKeuangan();}else{ kosong();}              break; 
+            case 8: if(!Produk.empty() || !Penjualan.empty()){ reset();}else{ kosong();}     break;
             case 0: keluar();                                                             return 0;
             default:
                 system("cls");
