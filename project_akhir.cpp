@@ -590,7 +590,26 @@ void bacaFilePenjualan(){
    }
 }
 
-//==============================================================================================================
+// ==============================================================================================================
+// Menggunakan rekursif
+
+bool konfirmasiKembali(){
+    cout << "\nApakah Anda ingin kembali ke menu? (y/t) : ";
+    char input;
+    cin >> input;
+    cin.ignore();
+
+    if(input == 'y' || input == 'Y'){
+        return true;
+    }else if(input == 't' || input == 'T'){
+        return false;
+    }else{
+        cout << "Input tidak valid. Silakan masukkan 'y' atau 't'.\n";
+        return konfirmasiKembali();
+    }
+}
+
+// ==============================================================================================================
 
 void kosong(){
     system("cls");
@@ -606,20 +625,4 @@ void keluar(){
     cout << "============================\n";
     cout << "|   Keluar dari program    |\n";
     cout << "============================\n\n";
-}
-
-bool konfirmasiKembali(){
-    cout << "\nApakah Anda ingin kembali ke menu? (y/t) : ";
-    char input;
-    cin >> input;
-    cin.ignore();
-
-    if(input == 'y' || input == 'Y'){
-        return true;
-    }else if(input == 't' || input == 'T'){
-        return false;
-    }else{
-        cout << "Input tidak valid. Silakan masukkan 'y' atau 't'.\n";
-        return konfirmasiKembali(); // <--- Penerapan rekursif
-    }
 }
