@@ -21,7 +21,6 @@ struct penjualan{
 vector<produk> Produk;
 vector<penjualan> Penjualan;
 int menu, menuPerbarui, urutanProduk, AscDesc = 0;
-char kembali;
 
 void bacaFilePenjualan(), bacaFileProduk();
 void simpanFilePenjualan(), simpanFileProduk();
@@ -89,7 +88,7 @@ void MENU(){
 void tambahProduk(){
     system("cls");
     int jumlahInput = 0;
-    cout << "Jumlah produk yang ingin diinput : ";
+    cout << "Jumlah produk yang ingin dikembali : ";
     cin >> jumlahInput;
     cin.ignore(); 
 
@@ -266,15 +265,15 @@ produk* cariProdukPointer(){
 }
 
 void tampilkanHasilCariProduk(){
-    produk* foundProduct = cariProdukPointer();
-    if(foundProduct != nullptr){
+    produk* ketemu = cariProdukPointer();
+    if(ketemu != nullptr){
         system("cls");
         cout << "====================================\n";
         cout << "|         Hasil Pencarian          |\n";
         cout << "====================================\n";
-        cout << "Nama Produk : " << foundProduct->nama << endl;
-        cout << "Harga       : Rp " << foundProduct->harga << endl;
-        cout << "Stok        : " << foundProduct->stok << endl;
+        cout << "Nama Produk : " << ketemu->nama << endl;
+        cout << "Harga       : Rp " << ketemu->harga << endl;
+        cout << "Stok        : " << ketemu->stok << endl;
         cout << "====================================\n";
    }else{
         cout << "====================================\n";
@@ -382,7 +381,7 @@ void menuPerbaruiProduk(produk* prodToUpdate){
 void hapusProduk(){
     system("cls");
     string namaProduk;
-    bool found = false;
+    bool ada = false;
     size_t index = 0;
 
     cout << "Nama produk yang ingin dihapus : ";
@@ -390,12 +389,12 @@ void hapusProduk(){
 
     for(size_t j = 0; j < Produk.size(); ++j){
         if(Produk[j].nama == namaProduk){
-            found = true;
+            ada = true;
             index = j;
             break;
        }
    }
-    if(found){
+    if(ada){
         Produk.erase(Produk.begin() + index);
         cout << "============================================\n";
         cout << "-------Data produk berhasil dihapus!--------\n";
@@ -595,13 +594,13 @@ void bacaFilePenjualan(){
 
 bool konfirmasiKembali(){
     cout << "\nApakah Anda ingin kembali ke menu? (y/t) : ";
-    char input;
-    cin >> input;
+    char kembali;
+    cin >> kembali;
     cin.ignore();
 
-    if(input == 'y' || input == 'Y'){
+    if(kembali == 'y' || kembali == 'Y'){
         return true;
-    }else if(input == 't' || input == 'T'){
+    }else if(kembali == 't' || kembali == 'T'){
         return false;
     }else{
         cout << "Input tidak valid. Silakan masukkan 'y' atau 't'.\n";
