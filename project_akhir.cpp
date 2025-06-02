@@ -88,7 +88,7 @@ void MENU(){
 void tambahProduk(){
     system("cls");
     int jumlahInput = 0;
-    cout << "Jumlah produk yang ingin dikembali : ";
+    cout << "Jumlah produk yang ingin ditambah : ";
     cin >> jumlahInput;
     cin.ignore(); 
 
