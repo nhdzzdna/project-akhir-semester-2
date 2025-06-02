@@ -25,7 +25,7 @@ char kembali;
 
 void bacaFilePenjualan(), bacaFileProduk();
 void simpanFilePenjualan(), simpanFileProduk();
-void kosong(), MENU(), menuAscDesc();
+void kosong(), MENU(), menuAscDesc(); bool konfirmasiKembali();
 void menuPerbaruiProduk(produk* prodToUpdate); // Meneruskan pointer ke produk
 void menuTampilkanProduk(), tampilkanProduk(const vector<produk>* ProdukList), tampilkanHasilCariProduk();
 produk* cariProdukPointer(); // Mengembalikan pointer ke produk yang ditemukan
@@ -57,10 +57,7 @@ int main(){
                 cout << "==================\n";
                 break;
        }
-        cout << "\nApakah anda ingin kembali ke menu? (y/t) : ";
-        cin >> kembali;
-        cin.ignore(); 
-   }while(kembali == 'y' || kembali == 'Y');
+   }while(konfirmasiKembali());
     return 0;
 }
 
@@ -609,4 +606,20 @@ void keluar(){
     cout << "============================\n";
     cout << "|   Keluar dari program    |\n";
     cout << "============================\n\n";
+}
+
+bool konfirmasiKembali(){
+    cout << "\nApakah Anda ingin kembali ke menu? (y/t) : ";
+    char input;
+    cin >> input;
+    cin.ignore();
+
+    if(input == 'y' || input == 'Y'){
+        return true;
+    }else if(input == 't' || input == 'T'){
+        return false;
+    }else{
+        cout << "Input tidak valid. Silakan masukkan 'y' atau 't'.\n";
+        return konfirmasiKembali(); // <--- Penerapan rekursif
+    }
 }
